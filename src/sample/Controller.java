@@ -13,6 +13,7 @@ public class Controller {
     //Graphics g;
     int timePassed=0;
     boolean clear=false;
+    int score=0;
 
 
     public void Slice(GameContainer gc,StateBasedGame sbg,Graphics g,Fruits sample) throws SlickException {
@@ -20,6 +21,7 @@ public class Controller {
 
         sample.getSlicedImage().draw(300,300);
         sample.getSlicedImage2().draw(360,300);
+        score+=100;
         if(clear){
             sample.getSlicedImage2().draw(300,300, Color.transparent);
             g.drawString("HELLO",50,50);}
@@ -36,6 +38,12 @@ public class Controller {
 
 
     }
+
+    public int getScore(){
+        return score;
+    }
+
+
 
 
 

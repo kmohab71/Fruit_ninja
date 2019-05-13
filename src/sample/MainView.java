@@ -27,7 +27,7 @@ public class MainView extends BasicGameState {
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
-        g.drawString("Welcome To Fruit Ninja!",100,50);
+        g.drawString("Welcome To Factory.Fruit Ninja!",100,50);
         playGame.draw(0,0);
         MenuButton.draw(100,100);
     }

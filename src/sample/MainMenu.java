@@ -8,7 +8,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 
     public class MainMenu extends StateBasedGame {
-        public static final String gamename = "Fruit Ninja";
+        public static final String gamename = "Factory.Fruit Ninja";
         public static final int menu = 0;
         public static final int play = 1;
 

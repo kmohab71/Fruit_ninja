@@ -25,10 +25,9 @@ public class Fruits extends BasicGameState implements IModel {
     public void Move() {
 
     }
+
+
     public Image[] getImages() throws SlickException {
-        return null;
-    }
-    public Image getImage() throws SlickException{
         return null;
     }
 
