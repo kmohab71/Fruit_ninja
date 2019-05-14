@@ -12,11 +12,11 @@ public class Fruits extends BasicGameState implements IModel {
     boolean isSliced=false;
     Animation animation;
 
-    public Fruits (float xpos,float ypos) throws SlickException {
+    public Fruits () throws SlickException {
         images=this.getImages();
         animation=new Animation(this.images,duration);
-        this.xpos=xpos;
-        this.ypos=ypos;
+        this.xpos=(float) Math.random()*640;
+        this.ypos=0;
     }
     public int getID() {
         return 1;

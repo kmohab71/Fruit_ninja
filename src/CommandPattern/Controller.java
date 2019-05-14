@@ -1,10 +1,12 @@
 package CommandPattern;
+import Factory.Fruit;
 import Factory.GameObject;
+import GUI.Fruits;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
-import GUI.*;
+
 public interface Controller {
     public GameObject createGameObject();
     public void updateObjectsLocations();
@@ -13,9 +15,6 @@ public interface Controller {
     This method can take your swiping region as parameters (they
     depend on how you calculate it).
     */
-
-
-
     public void sliceObjects(GameContainer gc, StateBasedGame sbg, Graphics g, Fruits sample) throws SlickException;
     /*
      *saves the current state of the game

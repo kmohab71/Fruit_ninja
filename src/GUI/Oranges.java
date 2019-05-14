@@ -7,7 +7,7 @@ import org.newdawn.slick.SlickException;
 public class Oranges extends Fruits{
 
     public Oranges(float xpos, float ypos) throws SlickException {
-        super(xpos, ypos);
+        super();
         images=this.getImages();
         animation=new Animation(images,duration);
     }

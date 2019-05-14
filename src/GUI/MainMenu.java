@@ -14,40 +14,30 @@ import java.io.IOException;
 
 
 public class MainMenu extends StateBasedGame {
-        public static final String gamename = "Fruit Ninja";
-        public static final int menu = 0;
-        public static final int play = 1;
+    public static final String gamename = "Fruit Ninja";
+    public static final int menu = 0;
+    public static final int play = 1;
 
-        public MainMenu(String name) {
-            super(name);
-            this.addState(new MainView(menu));
-            this.addState(new View(play));
-
-
-        }
-
-        public void initStatesList(GameContainer gameContainer) throws SlickException {
-            SoundStore.get().setMaxSources(32);
+    public MainMenu(String name) {
+        super(name);
+        this.addState(new MainView(menu));
+        this.addState(new View(play));
 
 
-            this.getState(menu).init(gameContainer,this);
-            this.getState(play).init(gameContainer,this);
-            this.enterState(menu);
-        }
-
-
-
-        public static void main(String[] args) throws SlickException {
-
-
-            AppGameContainer apg;
-            try {
-                apg = new AppGameContainer(new GUI.MainMenu(gamename));
-                apg.setDisplayMode(640,360,false);
-                apg.setTargetFrameRate(500);
-                apg.start();
-            }catch (SlickException e){e.printStackTrace();}
-        }
     }
+
+    public void initStatesList(GameContainer gameContainer) throws SlickException {
+        SoundStore.get().setMaxSources(32);
+
+
+        this.getState(menu).init(gameContainer, this);
+        this.getState(play).init(gameContainer, this);
+        this.enterState(menu);
+    }
+}
+
+
+
+
 
 

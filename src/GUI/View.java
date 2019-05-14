@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
- public class View extends BasicGameState {
+import static GUI.MainMenu.gamename;
+
+public class View extends BasicGameState {
     int timePassed,time;
     Image worldmap;
     List<Circle> circles;
@@ -37,7 +39,7 @@ import java.util.Random;
 
 
     public View(int state){ }
-
+    public View(){ }
 
 
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
@@ -46,7 +48,6 @@ import java.util.Random;
         apples = new Apples(0,0);
         bananas = new Bananas(0,0);
         oranges = new Oranges(0,0);
-        c=new GameActions();
         random = new Random();
         gameContainer.setMouseCursor(new Image("res/sword22.png"),0,0);
     }
@@ -105,8 +106,20 @@ import java.util.Random;
     }
 
 
+    public void mainMenu()
+    {
+        AppGameContainer apg;
+        try {
+            apg = new AppGameContainer(new GUI.MainMenu(gamename));
+            apg.setDisplayMode(640,360,false);
+            apg.setTargetFrameRate(500);
+            apg.start();
+        }catch (SlickException e){e.printStackTrace();}
+    }
 
 }
+
+
 
 
 

@@ -1,5 +1,8 @@
 package CommandPattern;
 
+import Factory.Bomb;
+import Factory.Fruit;
+import GUI.View;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -10,12 +13,19 @@ import Factory.GameObject;
 
 public class GameActions implements Controller{
 
-    private static GameActions instance = new GameActions();
+    private Fruit fruit;
+    private Bomb bomb;
+    private View view;
 
-    public GameActions(){}
+    public GameActions(Fruit fruit, Bomb bomb, View view) {
+        this.fruit = fruit;
+        this.bomb = bomb;
+        this.view = view;
+    }
 
-    public static GameActions getInstance(){
-        return instance;
+    public void Display()
+    {
+        view.mainMenu();
     }
 
     @Override
@@ -27,12 +37,17 @@ public class GameActions implements Controller{
     public void updateObjectsLocations() {
 
     }
+
+    @Override
+    public void sliceObjects(GameContainer gc, StateBasedGame sbg, Graphics g, Fruits sample) throws SlickException {
+
+    }
+
     int timePassed=0;
     boolean clear=false;
 
 
-    @Override
-    public void sliceObjects(GameContainer gc,StateBasedGame sbg,Graphics g,Fruits sample) throws SlickException {
+    public void sliceObjects(GameContainer gc, StateBasedGame sbg, Graphics g, Fruit sample) throws SlickException {
         sample.getSlicedImage().draw(300,300);
         sample.getSlicedImage2().draw(360,300);
         if(clear){

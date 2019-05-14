@@ -12,7 +12,7 @@ public class Bananas extends Fruits {
 
 
     public Bananas(float xpos, float ypos) throws SlickException {
-        super(xpos, ypos);
+        super();
         images=this.getImages();
         animation=new Animation(images,duration);
     }
