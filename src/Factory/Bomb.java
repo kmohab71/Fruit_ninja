@@ -1,7 +1,5 @@
 package Factory;
 
-import java.awt.image.BufferedImage;
-
 public class Bomb implements GameObject {
     @Override
     public int getXlocation() {
@@ -46,10 +44,5 @@ public class Bomb implements GameObject {
     @Override
     public void move(double time) {
 
-    }
-
-    @Override
-    public BufferedImage[] getBufferedImages() {
-        return new BufferedImage[0];
     }
 }

@@ -1,13 +1,8 @@
 package Factory;
 
-import java.awt.image.BufferedImage;
+import CommandPattern.GameActions;
 
 public class Fruit implements GameObject {
-    @Override
-   /* public ENUM getObjectType() {
-        return null;
-    }
-*/
     @Override
     public int getXlocation() {
         return 0;
@@ -51,10 +46,5 @@ public class Fruit implements GameObject {
     @Override
     public void move(double time) {
 
-    }
-
-    @Override
-    public BufferedImage[] getBufferedImages() {
-        return new BufferedImage[0];
     }
 }

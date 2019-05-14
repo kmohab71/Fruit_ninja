@@ -1,10 +1,6 @@
 package Factory;
 
-import java.awt.image.BufferedImage;
-
-
 public interface GameObject {
-
     /**
      *@return the type of game object
      */
@@ -37,6 +33,7 @@ public interface GameObject {
      *@return whether the object is dropped off the screen or not
      */
     public Boolean hasMovedOffScreen();
+
     /*
      *it is used to slice the object
      */
@@ -46,11 +43,15 @@ public interface GameObject {
     @param deltaTime: time elapsed since the object is thrown
     it is used calculate the new position of
     fruit object.
+
     */
     public void move(double time);
-    /*
-    *@return at least two images of the object, one when it is
-    sliced and one when it is not.
-    */
-    public BufferedImage [] getBufferedImages();
+    //
+
+//*@return at least two images of the object, one when it is
+
+//sliced and one when it is not.
+
+//
+
 }
