@@ -7,11 +7,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="libs" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/ibxm.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Fruit_ninja-master-2/libs/ibxm.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -20,7 +19,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/jogg-0.0.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Fruit_ninja-master-2/libs/jogg-0.0.7.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -29,7 +28,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/jorbis-0.0.15.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Fruit_ninja-master-2/libs/jorbis-0.0.15.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -38,7 +37,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/lwjgl.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Fruit_ninja-master-2/libs/lwjgl.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -47,7 +46,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/slick.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Fruit_ninja-master-2/libs/slick.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
