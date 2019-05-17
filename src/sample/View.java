@@ -1,7 +1,6 @@
 package sample;
 
 import org.newdawn.slick.*;
-import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -10,24 +9,22 @@ import java.util.List;
 import java.util.Random;
 
 public class View extends BasicGameState {
+
     int timePassed,time;
     Image worldmap;
-    List<Circle> circles;
-    Random random;
-    Apples apples;
-    Bananas bananas;
-    Oranges oranges;
+
+
+//float Speed= (float) 0.8;
+   GameObject cut;
+
+
+    GameObject gameObject;
+    List<GameObject> gameObjects;
     Controller c;
-    boolean check=false;
+
+
+
     boolean isSliced = false;
-
-
-
-    /*private static final View view = new View();
-    private View(){}
-    public static View getInstance(){
-        return view;}*/
-
 
 
     public int getID() {
@@ -41,81 +38,120 @@ public class View extends BasicGameState {
 
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         worldmap = new Image("res/City2.png");
-        circles=new ArrayList<>();
-        apples = new Apples(0,0);
-        bananas = new Bananas(0,0);
-        oranges = new Oranges(0,0);
+        gameObject = new GameObject();
+        gameObjects = new ArrayList<>();
         c=new Controller();
-        random = new Random();
+
+        c.newGame(HARD.getInstance());
+
+
         gameContainer.setMouseCursor(new Image("res/sword22.png"),0,0);
+
     }
 
 
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
         worldmap.draw(0,0);
 
+           g.drawString("Number of fruits"+gameObjects.size(),100,150);
+           DrawHearts(c.Hearts,g);
+           DrawFruits(gameObjects);
 
-        for(Circle f : circles){
-           //DrawFruits(apples,circles);
-           DrawFruits(bananas,circles);
-           DrawFruits(oranges,circles);
+
+
+         g.drawString("Time:"+time/1000,100,100);
+         g.drawString("Score:"+c.getScore(),100,130);
+
+    }
+
+
+
+
+    public void DrawHearts(int n,Graphics g) throws SlickException{
+        for(int f=0;f<n;f++)
+            g.drawImage(new Image("res/heart.png"),550+20*f,50);
+    }
+
+
+
+
+
+
+
+
+
+  public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
+        timePassed+=i/2;
+        time+=i;
+        c.timePassed+=i/2;
+
+     FruitFall(3,gameObjects,i);
+    //c.GameOver(stateBasedGame,cut);
+
+
+
+    }
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+    public void FruitFall(int NumOfFruits,List<GameObject> sample,int i )throws SlickException{
+
+
+        for(int f=0;f<gameObjects.size();f++){
+            gameObjects.get(f).setYPos(gameObjects.get(f).getYPos()+(c.speed()*(i)));
+            c.Loss(sample,cut);
+             }
+
+
+            if(timePassed>300){
+                timePassed=0;
+                c.timePassed=0;
+
+
+                for(int k=0;k<NumOfFruits;k++)
+                c.AddObject(gameObject,gameObjects);
+
+            }
 
         }
 
 
 
+   //DRAWS THE FRUITS IN THEIR UPDATED POSITION
+    public void DrawFruits(List<GameObject> gameObjects) throws SlickException{
 
-        if(isSliced)
-            c.Slice(gameContainer,stateBasedGame,g,bananas);
-
-         g.drawString("Time:"+time/1000,100,100);
-    }
-
+        for(int f=0;f<gameObjects.size();f++){
+            gameObjects.get(f).animation.draw(gameObjects.get(f).getXPos(), (float) gameObjects.get(f).getYPos());
 
 
-
+        }}
 
 
 
-
-
-                 public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
-        timePassed+=i/2;
-        time+=i;
-        for(Circle f : circles){
-            f.setCenterY(f.getCenterY()+(i/2)); }
-        FruitFall();
-
-        if(isSliced)
-            c.Timer(gameContainer,stateBasedGame,i, bananas);
-    }
-
-
-
-    public void FruitFall(){
-        if(timePassed>500){
-            int j=0;
-            timePassed=0;
-            circles.add(new Circle(random.nextInt(600),0,30));
-            if(circles.get(j).getCenterY()>290){
-                circles.remove(j);}
-
-            j++;
-        } }
-
-        public void DrawFruits(Fruits sample,List<Circle> circles){
-     for(Circle f : circles){
-         sample.setXPos(f.getCenterX());
-         sample.setYPos(f.getCenterY());
-         sample.animation.draw(f.getCenterX(),f.getCenterY());}} 
-
-
-    public void mouseMoved(int oldx, int oldy, int newx, int newy) {
-        for(Circle f: circles){
-            if(oldx> f.getCenterX()-30 &&newx<f.getCenterX()+30&& oldy> f.getCenterY()-30 && newy<f.getCenterX()+30){
+        //TO SEE SLICING
+        public void mouseMoved(int oldx, int oldy, int newx, int newy) {
+        for(int f=0;f<gameObjects.size();f++){
+            if(oldx> gameObjects.get(f).getXPos() &&newx<gameObjects.get(f).getXPos()+60&&
+                    oldy> gameObjects.get(f).getYPos() && newy<gameObjects.get(f).getYPos()+75){
                 isSliced=true;
-                check=true;}}
-    }
+                cut = gameObjects.get(f);
+                try {
+                    c.Slice(cut);
+                } catch (SlickException e) {
+                    e.printStackTrace();
+                }
+            }}}
 
 
 
