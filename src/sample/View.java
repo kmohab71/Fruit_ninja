@@ -44,7 +44,7 @@ public class View extends BasicGameState {
         gameObjects = new ArrayList<>();
 
         try {
-            c=new Controller();
+            c=Controller.getInstance();
             invoker = new Invoker();
             invoker.setC(new NewGameCommand(c,EASY.getInstance()));
             invoker.Action();

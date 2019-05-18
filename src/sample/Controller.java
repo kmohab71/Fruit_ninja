@@ -28,9 +28,14 @@ public class Controller implements ICommand {
     Random random;
     int timePassed=0;
 
-    public Controller() {
+    private Controller() {
     }
-
+    public static Controller getInstance()
+    {
+        if (obj==null)
+            obj=new Controller();
+        return obj;
+    }
     public void setLevel(iLevel level) {
         this.level = level;
     }
