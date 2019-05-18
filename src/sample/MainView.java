@@ -36,7 +36,9 @@ public class MainView extends BasicGameState {
         g.drawString("Welcome To Fruit Ninja!",100,50);
         playGame.draw(0,0);
         MenuButton.draw(100,100);
-        Easy.draw(100,200);
+        Easy.draw(5,180);
+        Medium.draw(320,180);
+        Hard.draw(5,280);
     }
 
     @Override
@@ -45,10 +47,17 @@ public class MainView extends BasicGameState {
         ypos = Math.abs(gameContainer.getHeight() - Mouse.getY());
 
         Input input = gameContainer.getInput();
-        if((xpos>100 && xpos<500)&& (ypos>100 && ypos<173)){
-            if(input.isMouseButtonDown(0)){
-                stateBasedGame.enterState(1,new FadeOutTransition(),new FadeInTransition());
-            // must setMy_Level in the controller according to the user's input :)
+        if(input.isMouseButtonDown(0)) {
+            if ((xpos > 5 && xpos < 300) && (ypos > 180 && ypos < 260)) {
+                stateBasedGame.enterState(1, new FadeOutTransition(), new FadeInTransition());
+            }
+            if ((xpos > 320 && xpos < 615) && (ypos > 180 && ypos <260)){
+                stateBasedGame.enterState(1, new FadeOutTransition(), new FadeInTransition());
+
+            }
+            if ((xpos > 5 && xpos < 300 ) && (ypos >280)){
+                stateBasedGame.enterState(1, new FadeOutTransition(), new FadeInTransition());
+
             }
         }
     }

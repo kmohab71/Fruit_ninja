@@ -23,7 +23,7 @@ public class View extends BasicGameState {
     GameObject gameObject;
     List<GameObject> gameObjects;
     Controller c;
-
+    Invoker invoker;
 
 
     boolean isSliced = false;
@@ -44,8 +44,8 @@ public class View extends BasicGameState {
         gameObjects = new ArrayList<>();
 
         try {
-            c=Controller.getInstance();
-            Invoker invoker = new Invoker();
+            c=new Controller();
+            invoker = new Invoker();
             invoker.setC(new NewGameCommand(c,EASY.getInstance()));
             invoker.Action();
         } catch (TransformerException e) {
@@ -96,8 +96,9 @@ public class View extends BasicGameState {
         time+=i;
         c.timePassed+=i/2;
 
-     FruitFall(3,gameObjects,i);
+     //FruitFall(((int)Math.random()*3),gameObjects,i);
     //c.GameOver(stateBasedGame,cut);
+      FruitFall(3,gameObjects,i);
 
 
     }
