@@ -19,7 +19,7 @@ public class GameObject implements IModel {
 
     int [] duration = {100,100};
     Image[] images=getFullImages();
-    Animation animation;
+    public Animation animation;
 
 
 

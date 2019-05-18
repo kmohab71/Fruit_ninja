@@ -40,7 +40,7 @@ public class View extends BasicGameState {
         worldmap = new Image("res/City2.png");
         gameObject = new GameObject();
         gameObjects = new ArrayList<>();
-        c=new Controller();
+        c=Controller.getInstance();
 
         c.newGame(EASY.getInstance());
 
@@ -101,7 +101,7 @@ public class View extends BasicGameState {
         for(int f=0;f<gameObjects.size();f++){
             int random =  getRandomNumber();
             Projectile p = new WizradProjectile(random,0,45);
-            gameObjects.get(f).setYPos(((int) gameObjects.get(f).getYPos() +p);
+            gameObjects.get(f).setYPos((int)gameObjects.get(f).getYPos() + (int) p.yOrigin);
 
 
 
