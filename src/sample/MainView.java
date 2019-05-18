@@ -49,13 +49,16 @@ public class MainView extends BasicGameState {
         Input input = gameContainer.getInput();
         if(input.isMouseButtonDown(0)) {
             if ((xpos > 5 && xpos < 300) && (ypos > 180 && ypos < 260)) {
+                Controller.getInstance().setLevel(new EASY());
                 stateBasedGame.enterState(1, new FadeOutTransition(), new FadeInTransition());
             }
             if ((xpos > 320 && xpos < 615) && (ypos > 180 && ypos <260)){
+                Controller.getInstance().setLevel(new INTERMEDIATE());
                 stateBasedGame.enterState(1, new FadeOutTransition(), new FadeInTransition());
 
             }
             if ((xpos > 5 && xpos < 300 ) && (ypos >280)){
+                Controller.getInstance().setLevel(new HARD());
                 stateBasedGame.enterState(1, new FadeOutTransition(), new FadeInTransition());
 
             }

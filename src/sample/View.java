@@ -46,7 +46,7 @@ public class View extends BasicGameState {
         try {
             c=Controller.getInstance();
             invoker = new Invoker();
-            invoker.setC(new NewGameCommand(c,EASY.getInstance()));
+            invoker.setC(new NewGameCommand(c,c.getLevel()));
             invoker.Action();
         } catch (TransformerException e) {
             e.printStackTrace();
@@ -65,7 +65,7 @@ public class View extends BasicGameState {
         worldmap.draw(0,0);
 
            g.drawString("Number of fruits"+gameObjects.size(),100,150);
-           DrawHearts(c.Hearts,g);
+           DrawHearts(c.getHearts(),g);
            DrawFruits(gameObjects);
 
 
@@ -94,7 +94,9 @@ public class View extends BasicGameState {
   public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
         timePassed+=i/2;
         time+=i;
-        c.timePassed+=i/2;
+        int t=c.getTimePassed();
+        t+=i/2;
+        c.setTimePassed(t);
 
      //FruitFall(((int)Math.random()*3),gameObjects,i);
     //c.GameOver(stateBasedGame,cut);
@@ -106,33 +108,53 @@ public class View extends BasicGameState {
         int x = (int) Math.round(Math.random());
         return x;
     }
-
     public void FruitFall(int NumOfFruits,List<GameObject> sample,int i )throws SlickException{
 
 
         for(int f=0;f<gameObjects.size();f++){
-            int random =  getRandomNumber();
-            Projectile p = new WizradProjectile(random,0,45);
-            gameObjects.get(f).setYPos((int)gameObjects.get(f).getYPos() + (int) p.yOrigin);
-
-
-
+            gameObjects.get(f).setYPos(gameObjects.get(f).getYPos()+(c.speed()*(i)));
             c.Loss(sample,cut);
-             }
+        }
 
 
-            if(timePassed>300){
-                timePassed=0;
-                c.timePassed=0;
+        if(timePassed>300){
+            timePassed=0;
+            c.setTimePassed(0);
 
 
-                for(int k=0;k<NumOfFruits;k++)
+            for(int k=0;k<NumOfFruits;k++)
                 c.AddObject(gameObject,gameObjects);
-
-            }
 
         }
 
+    }
+
+   // public void FruitFall(int NumOfFruits,List<GameObject> sample,int i )throws SlickException{
+   //
+   //
+   //     for(int f=0;f<gameObjects.size();f++){
+   //         int random =  getRandomNumber();
+   //         Projectile p = new WizradProjectile(random,0,45);
+   //         gameObjects.get(f).setYPos((int)gameObjects.get(f).getYPos() + (int) p.yOrigin);
+   //
+   //
+   //
+   //         c.Loss(sample,cut);
+   //          }
+   //
+   //
+   //         if(timePassed>300){
+   //             timePassed=0;
+   //             c.setTimePassed(0);
+   //
+   //
+   //             for(int k=0;k<NumOfFruits;k++)
+   //             c.AddObject(gameObject,gameObjects);
+   //
+   //         }
+   //
+   //     }
+   //
 
 
    //DRAWS THE FRUITS IN THEIR UPDATED POSITION

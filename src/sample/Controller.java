@@ -21,12 +21,12 @@ import java.util.Random;
 
 public class Controller implements ICommand {
     private static Controller obj;
-    boolean clear=false;
-    int score=0;
-    int Hearts=3;
-    iLevel level= EASY.getInstance();
-    Random random;
-    int timePassed=0;
+    private boolean clear=false;
+    private int score=0;
+    private int Hearts=3;
+    private iLevel level;
+    private Random random;
+    private int timePassed=0;
 
     private Controller() {
     }
@@ -133,13 +133,31 @@ public class Controller implements ICommand {
         return object;
     }
 
-    double speed=level.speed();
-    public double getSpeed() {
-        return speed;
-    }
+
 
     @Override
     public double noOfFruits() {
         return level.noOfFruits();
     }
+
+    public static Controller getObj() {
+        return obj;
+    }
+
+    public boolean isClear() {
+        return clear;
+    }
+
+    public iLevel getLevel() {
+        return level;
+    }
+
+    public Random getRandom() {
+        return random;
+    }
+
+    public double speed(){
+        return level.speed();
+    }
+    
 }
