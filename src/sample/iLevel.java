@@ -7,7 +7,7 @@ public interface iLevel {
 
 
 class EASY implements iLevel{
-
+//lol
     public EASY(){}
 
 
@@ -23,7 +23,7 @@ class EASY implements iLevel{
 }
 
 class INTERMEDIATE implements iLevel{
-
+//lol
     public INTERMEDIATE(){}
 
     @Override
@@ -38,7 +38,7 @@ class INTERMEDIATE implements iLevel{
 }
 
 class HARD implements iLevel{
-
+// lol
     public HARD(){}
 
 
