@@ -17,10 +17,8 @@ class setLevel {
 
 class EASY implements iLevel{
 
-    private static final EASY easy = new EASY();
-    private EASY(){}
-    public static EASY getInstance(){
-        return easy;}
+    public EASY(){}
+
 
     @Override
     public double speed() {
@@ -35,7 +33,7 @@ class EASY implements iLevel{
 
 class INTERMEDIATE implements iLevel{
 
-
+    public INTERMEDIATE(){}
 
     @Override
     public double speed() {
@@ -50,10 +48,8 @@ class INTERMEDIATE implements iLevel{
 
 class HARD implements iLevel{
 
-    private static final HARD hard = new HARD();
-    private HARD(){}
-    public static HARD getInstance(){
-        return hard;}
+    public HARD(){}
+
 
     @Override
     public double speed() {
