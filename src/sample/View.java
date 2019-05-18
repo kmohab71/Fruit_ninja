@@ -42,7 +42,7 @@ public class View extends BasicGameState {
         gameObjects = new ArrayList<>();
         c=new Controller();
 
-        c.newGame(HARD.getInstance());
+        c.newGame(EASY.getInstance());
 
 
         gameContainer.setMouseCursor(new Image("res/sword22.png"),0,0);
@@ -89,27 +89,22 @@ public class View extends BasicGameState {
     //c.GameOver(stateBasedGame,cut);
 
 
-
     }
-
-
-
-
-
-
-
-    
-
-
-
-
-
+    public static int getRandomNumber(){
+        int x = (int) Math.round(Math.random());
+        return x;
+    }
 
     public void FruitFall(int NumOfFruits,List<GameObject> sample,int i )throws SlickException{
 
 
         for(int f=0;f<gameObjects.size();f++){
-            gameObjects.get(f).setYPos(gameObjects.get(f).getYPos()+(c.speed()*(i)));
+            int random =  getRandomNumber();
+            Projectile p = new WizradProjectile(random,0,45);
+            gameObjects.get(f).setYPos(((int) gameObjects.get(f).getYPos() +p);
+
+
+
             c.Loss(sample,cut);
              }
 
