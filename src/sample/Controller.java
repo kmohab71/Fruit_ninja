@@ -24,7 +24,7 @@ public class Controller implements ICommand {
     boolean clear=false;
     int score=0;
     int Hearts=3;
-    iLevel level;
+    iLevel level= EASY.getInstance();
     Random random;
     int timePassed=0;
 
@@ -38,6 +38,9 @@ public class Controller implements ICommand {
         return obj;
     }
 
+    public void setLevel(iLevel level) {
+        this.level = level;
+    }
 
     public int getTimePassed() {
         return timePassed;

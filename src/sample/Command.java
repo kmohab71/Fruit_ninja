@@ -106,8 +106,9 @@ public interface Command {
         private Controller c;
         private iLevel level;
 
-        public NewGameCommand(Controller c) {
+        public NewGameCommand(Controller c,iLevel level) {
             this.c = c;
+            this.level=level;
         }
 
 

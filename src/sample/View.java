@@ -4,6 +4,8 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -40,9 +42,18 @@ public class View extends BasicGameState {
         worldmap = new Image("res/City2.png");
         gameObject = new GameObject();
         gameObjects = new ArrayList<>();
-        c=Controller.getInstance();
 
-        c.newGame(EASY.getInstance());
+        try {
+            c=Controller.getInstance();
+            Invoker invoker = new Invoker();
+            invoker.setC(new NewGameCommand(c,EASY.getInstance()));
+            invoker.Action();
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+        //c.newGame(EASY.getInstance());
 
 
         gameContainer.setMouseCursor(new Image("res/sword22.png"),0,0);
