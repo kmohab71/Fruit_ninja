@@ -6,6 +6,8 @@ import org.newdawn.slick.SlickException;
 
 public class Bomb1 extends Bombs {
 
+    int id=2;
+
     public Bomb1() throws SlickException {
         animation=new Animation(images,duration);
     }

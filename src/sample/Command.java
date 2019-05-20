@@ -52,7 +52,7 @@ public interface Command {
 
         @Override
         public void execute() throws SlickException {
-            c.GameOver(sbg);
+            c.GameOver(sbg,c.cut);
         }
     }
 
@@ -169,7 +169,7 @@ public interface Command {
         }
         @Override
         public void execute() throws SlickException {
-            c.Slice(go);
+            c.Slice();
         }
     }
 

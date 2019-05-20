@@ -24,24 +24,25 @@ import java.util.Random;
 public class Controller implements ICommand {
     private static Controller obj;
     private boolean clear=false;
-    private boolean GameOver=false;
+    public boolean GameOver=false;
     private int score=0;
-    private int Hearts=3;
+    public int Hearts=3;
     private iLevel level;
     private Random random;
     private int timePassed=0;
-    public int count=0;
-    public GameObject cut;
+    public  int count=0;
+    public static GameObject cut;
     public List<GameObject> gameObjects=new ArrayList<>();
+    public int HighScore=20;
 
     private Controller() {
     }
 
 
-    public static Controller getInstance()
-    {
+    public static Controller getInstance() throws SlickException {
         if (obj==null)
             obj=new Controller();
+            cut=new GameObject();
         return obj;
     }
     public void setLevel(iLevel level) {
@@ -59,19 +60,15 @@ public class Controller implements ICommand {
 
 
     @Override
-    public void Slice(GameObject sample) throws SlickException {
-        sample.animation=sample.getSlicedImage();
-        setScore(score+=sample.Points());
-
-        //count++;
-        cut=sample;
-        sample.isSliced=true;
+    public void Slice() throws SlickException {
+        cut.animation=cut.getSlicedImage();
+        cut.isSliced=true;
 
 
 
 
-        if(sample instanceof Nuclear_Bomb)
-            GameOver=true;
+       if(cut instanceof Bomb1)
+            Hearts--;
     }
 
 
@@ -86,31 +83,39 @@ public class Controller implements ICommand {
         this.score=score;
     }
 
+
+
+
+
     @Override
-    public void GameOver(StateBasedGame sbg) {
-        if(GameOver)
-            sbg.enterState(2,new FadeOutTransition(),new FadeInTransition());
+    public void GameOver(StateBasedGame sbg,GameObject cut) {
+        if(cut instanceof Nuclear_Bomb || Hearts==0){
+           sbg.enterState(2,new FadeOutTransition(),new FadeInTransition());}
+
     }
 
 
-    public void Loss(GameObject gameObject) throws SlickException{
-            if(gameObject.getYPos()>290 && !gameObject.isSliced){
-                gameObjects.remove(gameObject);
+    public void Loss(GameObject cut) {
+
+           for(int f=0;f<gameObjects.size();f++){
+            if(gameObjects.get(f).getYPos()>290){
+                if(!gameObjects.get(f).isSliced && !isBomb(gameObjects.get(f))){
+                gameObjects.remove(gameObjects.get(f));
                 Hearts--;}
 
-                else if(gameObject.getYPos()>290 && gameObject.isSliced)
-                    gameObjects.remove(gameObject);
+                else gameObjects.remove(gameObjects.get(f));}}
 
-        if(gameObject instanceof Bomb1)
-            Hearts--;
+
 
     }
 
-    public int getHearts() {
-        if(Hearts==0)
-            GameOver=true;
-        return Hearts;
-    }
+
+
+
+
+
+
+
     @Override
     public void save() throws ParserConfigurationException, TransformerException {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -144,6 +149,7 @@ public class Controller implements ICommand {
     @Override
     public void newGame(iLevel level) {
         this.level=level;
+
     }
 
     @Override
@@ -157,13 +163,10 @@ public class Controller implements ICommand {
 
     public void resetGame (){
        Hearts=3;
-       score=0;
-     // cut.animation=new Animation(cut.images,cut.duration);
+       count=0;
        gameObjects.clear();
        GameOver=false;
        cut=null;
-
-
     }
 
 
@@ -173,25 +176,33 @@ public class Controller implements ICommand {
         return level.noOfFruits();
     }
 
-    public static Controller getObj() {
-        return obj;
-    }
 
-    public boolean isClear() {
-        return clear;
-    }
+
 
     public iLevel getLevel() {
         return level;
     }
 
-    public Random getRandom() {
-        return random;
-    }
+
 
     public double speed(){
         return level.speed();
     }
+
+    public boolean isBomb(GameObject cut){
+        if(cut instanceof Fruits || cut instanceof SpecialFruits)
+            return false;
+       else return true;
+
+    }
+
+    public void UpdateHighScore(){
+        if(count>=HighScore)
+            HighScore=count;
+    }
+
+
+
 
 
 

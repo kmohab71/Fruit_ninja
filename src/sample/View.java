@@ -3,6 +3,8 @@ package sample;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -16,12 +18,12 @@ public class View extends BasicGameState {
     Image worldmap;
 
 
-//float Speed= (float) 0.8;
-  // GameObject cut;
+
 
 
    GameObject gameObject;
-  //  List<GameObject> gameObjects;
+
+
     Controller c;
     Invoker invoker;
     public int getID() {
@@ -36,7 +38,7 @@ public class View extends BasicGameState {
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         worldmap = new Image("res/City2.png");
         gameObject = new GameObject();
-       // gameObjects = new ArrayList<>();
+
 
         try {
             c=Controller.getInstance();
@@ -48,7 +50,7 @@ public class View extends BasicGameState {
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
-        //c.newGame(EASY.getInstance());
+
 
 
         gameContainer.setMouseCursor(new Image("res/sword22.png"),0,0);
@@ -59,14 +61,20 @@ public class View extends BasicGameState {
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
         worldmap.draw(0,0);
 
-           g.drawString("Number of fruits"+c.gameObjects.size(),100,150);
-           DrawHearts(c.getHearts(),g);
+          // g.drawString("Number of fruits"+c.gameObjects.size(),100,150);
+           DrawHearts(c.Hearts,g);
            DrawFruits(c.gameObjects);
 
 
+           g.drawImage(new Image("res/arcade.png"),150,170);
 
-         g.drawString("Time:"+time/1000,100,100);
-         g.drawString("Score:"+c.getScore(),100,130);
+
+
+
+           g.drawString("Time:"+time/1000,100,100);
+           g.drawString("Score:"+c.count,100,130);
+           g.drawString("High Score:"+c.HighScore,100,170);
+
 
     }
 
@@ -93,22 +101,25 @@ public class View extends BasicGameState {
         t+=i/2;
         c.setTimePassed(t);
 
-     //FruitFall(((int)Math.random()*3),gameObjects,i);
-      c.GameOver(stateBasedGame);
+
+     c.GameOver(stateBasedGame,c.cut);
+     c.Loss(c.cut);
+     c.UpdateHighScore();
+
+
       FruitFall(c.noOfFruits(),c.gameObjects,i);
 
 
+
     }
-    public static int getRandomNumber(){
-        int x = (int) Math.round(Math.random());
-        return x;
-    }
+
+
     public void FruitFall(int NumOfFruits,List<GameObject> sample,int i )throws SlickException{
 
 
         for(int f=0;f<c.gameObjects.size();f++){
             c.gameObjects.get(f).setYPos(c.gameObjects.get(f).getYPos()+(c.speed()*(i)));
-            c.Loss(c.gameObjects.get(f));
+           // c.Loss(c.gameObjects.get(f));
         }
 
 
@@ -126,32 +137,7 @@ public class View extends BasicGameState {
 
     }
 
-   // public void FruitFall(int NumOfFruits,List<GameObject> sample,int i )throws SlickException{
-   //
-   //
-   //     for(int f=0;f<gameObjects.size();f++){
-   //         int random =  getRandomNumber();
-   //         Projectile p = new WizradProjectile(random,0,45);
-   //         gameObjects.get(f).setYPos((int)gameObjects.get(f).getYPos() + (int) p.yOrigin);
-   //
-   //
-   //
-   //         c.Loss(sample,cut);
-   //          }
-   //
-   //
-   //         if(timePassed>300){
-   //             timePassed=0;
-   //             c.setTimePassed(0);
-   //
-   //
-   //             for(int k=0;k<NumOfFruits;k++)
-   //             c.AddObject(gameObject,gameObjects);
-   //
-   //         }
-   //
-   //     }
-   //
+
 
 
    //DRAWS THE FRUITS IN THEIR UPDATED POSITION
@@ -167,20 +153,37 @@ public class View extends BasicGameState {
 
         //TO SEE SLICING
         public void mouseMoved(int oldx, int oldy, int newx, int newy) {
-        for(int f=0;f<c.gameObjects.size();f++){
-            if(oldx> c.gameObjects.get(f).getXPos() &&newx<c.gameObjects.get(f).getXPos()+60&&
-                    oldy> c.gameObjects.get(f).getYPos() && newy<c.gameObjects.get(f).getYPos()+75){
-                c.cut = c.gameObjects.get(f);
-                try {
-                    c.Slice(c.cut);
-                } catch (SlickException e) {
-                    e.printStackTrace();
+            for (int f = 0; f < c.gameObjects.size(); f++) {
+
+                if (oldx > c.gameObjects.get(f).getXPos() && newx < c.gameObjects.get(f).getXPos() + 60 &&
+                        oldy > c.gameObjects.get(f).getYPos() && newy < c.gameObjects.get(f).getYPos() + 75) {
+
+                    c.cut = c.gameObjects.get(f);
+                    try {
+                        if (!c.cut.isSliced) {
+                            c.count++;
+                            c.Slice();
+                            System.out.println(c.cut);
+                            System.out.println(c.Hearts);}
+
+                            else continue;
+
+
+
+
+                    } catch (SlickException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }}}
+            }
+
+        }
+
+      }
 
 
 
-}
+
 
 
 

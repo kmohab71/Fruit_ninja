@@ -6,7 +6,7 @@ import org.newdawn.slick.SlickException;
 
 public class Nuclear_Bomb extends Bombs {
 
-
+int id=1;
 
 
     public Nuclear_Bomb() throws SlickException {
@@ -25,6 +25,8 @@ public class Nuclear_Bomb extends Bombs {
 
         return animation;
     }
+
+
 
 
 

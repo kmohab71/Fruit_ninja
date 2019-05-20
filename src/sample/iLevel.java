@@ -19,6 +19,8 @@ class EASY implements iLevel{
         return 0.25;
     }
 
+
+
     @Override
     public int noOfFruits() {
        return 2;
@@ -36,6 +38,8 @@ class INTERMEDIATE implements iLevel{
         return 0.4;
     }
 
+
+
     @Override
     public int noOfFruits() {
         return 3;
@@ -46,6 +50,10 @@ class HARD implements iLevel{
 
     public HARD(){}
     Random random=new Random();
+
+    public int Time_Remaining() {
+        return 60000;
+    }
 
     @Override
     public double speed() {

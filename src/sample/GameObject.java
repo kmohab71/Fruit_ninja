@@ -11,6 +11,7 @@ import java.util.Random;
 public class GameObject implements IModel {
 
 
+    int id;
     int points=0;
     float xpos=50;
     double ypos=0;

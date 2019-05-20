@@ -11,10 +11,10 @@ import java.util.List;
 
 public interface ICommand {
 
-    public void Slice(GameObject sample) throws SlickException;
+    public void Slice() throws SlickException;
     public int getScore();
     public void setScore(int score);
-    public void GameOver(StateBasedGame sbg);
+    public void GameOver(StateBasedGame sbg,GameObject cut);
     public void Loss(GameObject gameObject) throws SlickException;
     public void save() throws ParserConfigurationException, TransformerException;
     public void newGame(iLevel level);
