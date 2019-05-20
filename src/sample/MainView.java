@@ -35,10 +35,10 @@ public class MainView extends BasicGameState {
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
         g.drawString("Welcome To Fruit Ninja!",100,50);
         playGame.draw(0,0);
-        MenuButton.draw(100,100);
-        Easy.draw(5,180);
-        Medium.draw(320,180);
-        Hard.draw(5,280);
+        MenuButton.draw(100,50);
+        Easy.draw(10,150);
+        Medium.draw(330,150);
+        Hard.draw(180,250);
     }
 
     @Override
@@ -48,16 +48,16 @@ public class MainView extends BasicGameState {
 
         Input input = gameContainer.getInput();
         if(input.isMouseButtonDown(0)) {
-            if ((xpos > 5 && xpos < 300) && (ypos > 180 && ypos < 260)) {
+            if ((xpos > 10 && xpos < 310) && (ypos > 150 && ypos < 230)) {
                 Controller.getInstance().setLevel(new EASY());
                 stateBasedGame.enterState(1, new FadeOutTransition(), new FadeInTransition());
             }
-            if ((xpos > 320 && xpos < 615) && (ypos > 180 && ypos <260)){
+            if ((xpos > 330 && xpos < 630) && (ypos > 150 && ypos <230)){
                 Controller.getInstance().setLevel(new INTERMEDIATE());
                 stateBasedGame.enterState(1, new FadeOutTransition(), new FadeInTransition());
 
             }
-            if ((xpos > 5 && xpos < 300 ) && (ypos >280)){
+            if ((xpos > 180 && xpos < 480 ) && (ypos > 250 && ypos <330)){
                 Controller.getInstance().setLevel(new HARD());
                 stateBasedGame.enterState(1, new FadeOutTransition(), new FadeInTransition());
 

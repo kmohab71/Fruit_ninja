@@ -17,18 +17,13 @@ public class View extends BasicGameState {
 
 
 //float Speed= (float) 0.8;
-   GameObject cut;
+  // GameObject cut;
 
 
-    GameObject gameObject;
-    List<GameObject> gameObjects;
+   GameObject gameObject;
+  //  List<GameObject> gameObjects;
     Controller c;
     Invoker invoker;
-
-
-    boolean isSliced = false;
-
-
     public int getID() {
         return 1;
     }
@@ -41,7 +36,7 @@ public class View extends BasicGameState {
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         worldmap = new Image("res/City2.png");
         gameObject = new GameObject();
-        gameObjects = new ArrayList<>();
+       // gameObjects = new ArrayList<>();
 
         try {
             c=Controller.getInstance();
@@ -64,9 +59,9 @@ public class View extends BasicGameState {
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
         worldmap.draw(0,0);
 
-           g.drawString("Number of fruits"+gameObjects.size(),100,150);
+           g.drawString("Number of fruits"+c.gameObjects.size(),100,150);
            DrawHearts(c.getHearts(),g);
-           DrawFruits(gameObjects);
+           DrawFruits(c.gameObjects);
 
 
 
@@ -99,8 +94,8 @@ public class View extends BasicGameState {
         c.setTimePassed(t);
 
      //FruitFall(((int)Math.random()*3),gameObjects,i);
-    //c.GameOver(stateBasedGame,cut);
-      FruitFall(3,gameObjects,i);
+      c.GameOver(stateBasedGame);
+      FruitFall(c.noOfFruits(),c.gameObjects,i);
 
 
     }
@@ -111,10 +106,12 @@ public class View extends BasicGameState {
     public void FruitFall(int NumOfFruits,List<GameObject> sample,int i )throws SlickException{
 
 
-        for(int f=0;f<gameObjects.size();f++){
-            gameObjects.get(f).setYPos(gameObjects.get(f).getYPos()+(c.speed()*(i)));
-            c.Loss(sample,cut);
+        for(int f=0;f<c.gameObjects.size();f++){
+            c.gameObjects.get(f).setYPos(c.gameObjects.get(f).getYPos()+(c.speed()*(i)));
+            c.Loss(c.gameObjects.get(f));
         }
+
+
 
 
         if(timePassed>300){
@@ -123,7 +120,7 @@ public class View extends BasicGameState {
 
 
             for(int k=0;k<NumOfFruits;k++)
-                c.AddObject(gameObject,gameObjects);
+                c.AddObject(gameObject,c.gameObjects);
 
         }
 
@@ -170,13 +167,12 @@ public class View extends BasicGameState {
 
         //TO SEE SLICING
         public void mouseMoved(int oldx, int oldy, int newx, int newy) {
-        for(int f=0;f<gameObjects.size();f++){
-            if(oldx> gameObjects.get(f).getXPos() &&newx<gameObjects.get(f).getXPos()+60&&
-                    oldy> gameObjects.get(f).getYPos() && newy<gameObjects.get(f).getYPos()+75){
-                isSliced=true;
-                cut = gameObjects.get(f);
+        for(int f=0;f<c.gameObjects.size();f++){
+            if(oldx> c.gameObjects.get(f).getXPos() &&newx<c.gameObjects.get(f).getXPos()+60&&
+                    oldy> c.gameObjects.get(f).getYPos() && newy<c.gameObjects.get(f).getYPos()+75){
+                c.cut = c.gameObjects.get(f);
                 try {
-                    c.Slice(cut);
+                    c.Slice(c.cut);
                 } catch (SlickException e) {
                     e.printStackTrace();
                 }

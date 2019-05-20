@@ -14,10 +14,10 @@ public interface ICommand {
     public void Slice(GameObject sample) throws SlickException;
     public int getScore();
     public void setScore(int score);
-    public void GameOver(StateBasedGame sbg, GameObject gameObject);
-    public void Loss(List<GameObject> gameObjects, GameObject gameObject);
+    public void GameOver(StateBasedGame sbg);
+    public void Loss(GameObject gameObject) throws SlickException;
     public void save() throws ParserConfigurationException, TransformerException;
     public void newGame(iLevel level);
     public GameObject AddObject(GameObject gameObject, List<GameObject> sample) throws SlickException;
-    public double noOfFruits();
+    public int noOfFruits();
 }

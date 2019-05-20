@@ -1,15 +1,18 @@
 package sample;
 
+import java.util.Random;
+
 public interface iLevel {
     public double speed();
-    public double noOfFruits();
+    public int noOfFruits();
+
 }
 
 
 class EASY implements iLevel{
 
     public EASY(){}
-
+    Random random=new Random();
 
     @Override
     public double speed() {
@@ -17,14 +20,16 @@ class EASY implements iLevel{
     }
 
     @Override
-    public double noOfFruits() {
-        return 0;
+    public int noOfFruits() {
+       return 2;
+       // return 1+random.nextInt(1);
     }
 }
 
 class INTERMEDIATE implements iLevel{
 
     public INTERMEDIATE(){}
+    Random random=new Random();
 
     @Override
     public double speed() {
@@ -32,15 +37,15 @@ class INTERMEDIATE implements iLevel{
     }
 
     @Override
-    public double noOfFruits() {
-        return 0;
+    public int noOfFruits() {
+        return 3;
     }
 }
 
 class HARD implements iLevel{
 
     public HARD(){}
-
+    Random random=new Random();
 
     @Override
     public double speed() {
@@ -48,7 +53,7 @@ class HARD implements iLevel{
     }
 
     @Override
-    public double noOfFruits() {
-        return 0;
+    public int noOfFruits() {
+        return 4;
     }
 }

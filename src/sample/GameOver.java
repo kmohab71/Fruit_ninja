@@ -8,6 +8,7 @@ import org.lwjgl.input.Mouse;
 
 public class GameOver extends BasicGameState {
     int xpos,ypos;
+
     public int getID() {
         return 2;
     }
@@ -21,9 +22,13 @@ public class GameOver extends BasicGameState {
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
          g.setColor(Color.black);
-         g.drawImage(new Image("res/textGameOver.png"),120,50);
-        g.drawImage(new Image("res/newgamebutton1.png"),120,150);
+        g.drawImage(new Image("res/City2.png"),0,0);
+         g.drawImage(new Image("res/textGameOver.png"),80,50);
+        g.drawImage(new Image("res/ninja.png"),250,-30);
+         g.drawImage(new Image("res/newgamebutton1.png"),120,150);
         g.drawImage(new Image("res/exitbutton1.png"),120,250);
+
+
 
     }
 
@@ -34,8 +39,9 @@ public class GameOver extends BasicGameState {
 
         Input input = gameContainer.getInput();
         if(input.isMouseButtonDown(0)){
-            if ((xpos > 120 && xpos < 420) && (ypos > 150 && ypos < 330))
-                stateBasedGame.enterState(1);
+            if ((xpos > 120 && xpos < 420) && (ypos > 150 && ypos < 330)){
+                Controller.getInstance().resetGame();
+                stateBasedGame.enterState(0);}
 
 
             if ((xpos > 120 && xpos < 420) && (ypos > 250 && ypos < 330))

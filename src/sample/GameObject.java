@@ -14,6 +14,7 @@ public class GameObject implements IModel {
     int points=0;
     float xpos=50;
     double ypos=0;
+    boolean isSliced =false;
 
 
 
@@ -31,6 +32,8 @@ public class GameObject implements IModel {
     public Boolean hasMovedOffScreen() {
         return null;
     }
+
+
 
     @Override
     public int Points() {
@@ -95,6 +98,8 @@ public class GameObject implements IModel {
     public Animation getSlicedImage() throws SlickException {
         return null;
     }
+
+
 
 
 

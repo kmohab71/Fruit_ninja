@@ -52,7 +52,7 @@ public interface Command {
 
         @Override
         public void execute() throws SlickException {
-            c.GameOver(sbg, gameObject);
+            c.GameOver(sbg);
         }
     }
 
@@ -98,7 +98,7 @@ public interface Command {
 
         @Override
         public void execute() throws SlickException {
-            c.Loss(gameObjects, gameObject);
+            c.Loss(gameObject);
         }
     }
 

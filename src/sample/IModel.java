@@ -10,6 +10,16 @@ public interface IModel {
     public Image[] getFullImages() throws SlickException;
 
     public Animation getSlicedImage() throws SlickException;
+    public GameObject getRandomGameObject() throws SlickException ;
+    public float getXPos();
+
+    public void setXPos(float xpos);
+
+    public double getYPos();
+
+    public void setYPos(double ypos);
+
+
     public Boolean hasMovedOffScreen();
     public int Points();
 
