@@ -3,22 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="825e6e99-540c-41f6-b5a0-ab2d56cc98e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FruitNinja/META-INF/FruitNinja.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FruitNinja/META-INF/FruitNinja.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/City2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/apple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/banana.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/exitbutton.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/exitbutton2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/lemon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/orange.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/pear.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/strawberry.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sword22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textGetReady.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kung Fu Fighting With Lyrics.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Observer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Subject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mainrun.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,11 +22,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/mainrun.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="285">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/MainView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -240,7 +236,7 @@
       <option name="presentableId" value="Default" />
       <updated>1557662810993</updated>
       <workItem from="1557662814757" duration="20587000" />
-      <workItem from="1559304026589" duration="242000" />
+      <workItem from="1559304026589" duration="535000" />
     </task>
     <task id="LOCAL-00001" summary=":D">
       <created>1557808575770</created>
@@ -249,11 +245,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557808575770</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="final version">
+      <created>1559304468785</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1559304468786</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20829000" />
+    <option name="totallyTimeSpent" value="21122000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -266,6 +269,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Learn" />
       <window_info id="Designer" order="0" />
@@ -378,7 +382,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=":D" />
-    <option name="LAST_COMMIT_MESSAGE" value=":D" />
+    <MESSAGE value="final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="final version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -404,9 +409,6 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/CommandPattern/sliceObjectsCommand.java" />
-    <entry file="file://$PROJECT_DIR$/src/CommandPattern/GameActions.java" />
-    <entry file="file://$PROJECT_DIR$/src/GUI/View.java" />
     <entry file="file://$PROJECT_DIR$/src/CommandPattern/Controller.java" />
     <entry file="file://$PROJECT_DIR$/src/Main.java" />
     <entry file="jar://$PROJECT_DIR$/libs/slick.jar!/org/newdawn/slick/AppGameContainer.class">
@@ -447,7 +449,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/MainView.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/MainMenu.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/GameOver.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/Factory.java" />
@@ -487,8 +488,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/mainrun.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/BreakAllFruit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/BonusFruit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Arcade_Mode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -524,7 +556,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>javafx11</last-edited>
+          <last-edited>AppleJavaExtensions</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
